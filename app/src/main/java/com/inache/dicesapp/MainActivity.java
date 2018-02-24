@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button rollButton = findViewById(R.id.rollButton);
         final ImageView image_left_dice = findViewById(R.id.image_left_dice);
-        ImageView image_right_dice = findViewById(R.id.image_right_dice);
+        final ImageView image_right_dice = findViewById(R.id.image_right_dice);
 
         //array final dice array cant change if its final.
         final int[] diceArray = {R.drawable.dice1,R.drawable.dice2,R.drawable.dice3,R.drawable.dice4,R.drawable.dice5,R.drawable.dice6};
@@ -34,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
                 // connecting array with random
 
                 image_left_dice.setImageResource(diceArray[number]);
+
+                //making new number generator without int, cause he will use previous one. so it will be 2 rand gens. */
+                number = randomNumberGenerator.nextInt(6);
+                image_right_dice.setImageResource(diceArray[number]);
 
             }
         });
